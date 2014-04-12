@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<project name="Alfresco themes - My first theme" default="packages" basedir=".">
+
+    <property name="theme.name" value="myFirstTheme"/>
+    <property name="alfrescoThemes.name" value="alfrescoThemes"/>
+    <property name="project.dir" value="."/>
+    <property name="build.dir" value="${project.dir}/build"/>
+    <property name="amp.file" value="${build.dir}/${alfrescoThemes.name}_${theme.name}.amp"/>
+    <property name="zip.file" value="${build.dir}/${alfrescoThemes.name}_${theme.name}.zip"/>
+
+    <target name="package-amp" description="Package the module in the AMP" >
+        <zip destfile="${amp.file}" >
+            <fileset dir="${project.dir}" includes="config/**/*.*" excludes="**/module.properties,**/file-mapping.properties" />
+            <fileset dir="${project.dir}" includes="themes/**/*.*" />
+            <fileset dir="${project.dir}/config/alfresco/module/${alfrescoThemes.name}/${theme.name}" includes="module.properties,file-mapping.properties" />
+        </zip>
+    </target>
+
+    <target name="package-zip" description="Package the module in the ZIP" >
+        <mkdir dir="${build.dir}/tomcat/webapps/share/themes" />
+        <mkdir dir="${build.dir}/tomcat/webapps/share/WEB-INF/classes/alfresco/site-data/themes" />
+        <copy todir="${build.dir}/tomcat/webapps/share/themes">
+            <fileset dir="themes" />
+        </copy>
+        <copy todir="${build.dir}/tomcat/webapps/share/WEB-INF/classes/alfresco/site-data/themes">
+            <fileset dir="config/alfresco/site-data/themes" />
+        </copy>
+        <zip destfile="${zip.file}" >
+            <fileset dir="${build.dir}" includes="tomcat/**/*.*" />
+        </zip>
+    	<delete dir="${build.dir}/tomcat"/>
+    </target>
+
+    <target name="packages" depends="package-amp,package-zip" description="Package the module in all formats" >
+    </target>
+
+</project>
