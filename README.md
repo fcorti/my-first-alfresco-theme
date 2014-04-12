@@ -9,11 +9,36 @@ http://fcorti.com/2012/12/31/alfresco-share-custom-theme/
 
 The custom theme packages are stored in the "build" folder.
 
-To deploy the AMP file, you can follow the official tutorials described here:
-https://wiki.alfresco.com/wiki/Module_Management_Tool
-ATTENTION: The deployment is in the Share WAR, not in the Alfresco WAR!
+How to package the theme
+=======================
 
-To deploy the ZIP file: copy it in the Alfresco installation folder and unzip it merging the subfolders.
-Of course, first of all, stop Alfresco before everything and start it again after the installation task.
+Open the ANT view in Eclipse clicking: Window -> Show view -> ANT.
+Add the build file pressing the plus ant button in the ANT view.
+The build file to add is stored in the Java project with the name 'build.xml'.
+Press the 'Run' button in the ANT view.
+Refresh the content of the 'build' folder of the project and check for the AMP file and the ZIP file.
+
+How to deploy the AMP file
+=======================
+
+Open a terminal and go to the folder where Alfresco is installed (for example: '/opt/alfresco-4.2.f').
+Stop Alfresco with the command: ./alfresco.sh stop
+Copy the AMP file from the 'build' folder of the project in the 'amps-share' folder.
+Go to the bin subfolder and run the command: ./apply_amps.sh
+Go back to the Alfresco installation folder and start Alfresco again with the command: ./alfresco.sh start
+Once Alfresco is started, open a browser with the URL 'http://127.0.0.1:8080/share', login as administrator and access to 'Admin tools' item in the menu.
+In 'Applications', change the theme to your custom theme.
+That's all!
+
+How to deploy the ZIP file.
+=======================
+
+Open a terminal and go to the folder where Alfresco is installed (for example: '/opt/alfresco-4.2.f').
+Stop Alfresco with the command: ./alfresco.sh stop
+Copy the ZIP file from the 'build' folder of the project in the folder and unzip it, merging the subfolders with the content.
+Start Alfresco again with the command: ./alfresco.sh start
+Once Alfresco is started, open a browser with the URL 'http://127.0.0.1:8080/share', login as administrator and access to 'Admin tools' item in the menu.
+In 'Applications', change the theme to your custom theme.
+That's all!
 
 Enjoy your theme!
