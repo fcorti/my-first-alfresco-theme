@@ -35,7 +35,7 @@ Go to the bin subfolder and run the command: ./apply_amps.sh
 
 Go back to the Alfresco installation folder and start Alfresco again with the command: ./alfresco.sh start
 
-Once Alfresco is started, open a browser with the URL 'http://<ip>:<port>/share', login as administrator and access to 'Admin tools' item in the menu.
+Once Alfresco is started, open a browser with the URL 'http://IP:PORT/share', login as administrator and access to 'Admin tools' item in the menu.
 
 In 'Applications', change the theme to your custom theme.
 
@@ -52,7 +52,7 @@ Copy the ZIP file from the 'build' folder of the project in the folder and unzip
 
 Start Alfresco again with the command: ./alfresco.sh start
 
-Once Alfresco is started, open a browser with the URL 'http://<ip>:<port>/share', login as administrator and access to 'Admin tools' item in the menu.
+Once Alfresco is started, open a browser with the URL 'http://IP:PORT/share', login as administrator and access to 'Admin tools' item in the menu.
 
 In 'Applications', change the theme to your custom theme.
 
